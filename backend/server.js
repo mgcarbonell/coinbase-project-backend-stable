@@ -24,4 +24,6 @@ app.use(
   })
 )
 
+app.get("/hello", (req, res) => res.send("Hello"))
+
 app.listen(port, () => console.log(`Server Running on Port: ${port}`))
