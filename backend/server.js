@@ -24,7 +24,4 @@ app.use(
   })
 )
 
-
-
-
-app.listen(port () => console.log(`Server Running on Port: ${port}`))
+app.listen(port, () => console.log(`Server Running on Port: ${port}`))
