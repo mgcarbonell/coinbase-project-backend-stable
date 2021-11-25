@@ -18,7 +18,11 @@ module.exports = {
     open: true,
     static: path.resolve(__dirname, "dist"),
     // if bundling front end, add server proxy config here
-    proxy: {},
+    proxy: {
+      "/hello": {
+        target: "http://localhost:4000",
+      },
+    },
   },
   entry: {
     bundle: "./src/index.js",
@@ -49,7 +53,15 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
-            plugins: ["babel-plugin-styled-components"],
+            plugins: [
+              "babel-plugin-styled-components",
+              [
+                "@babel/plugin-transform-runtime",
+                {
+                  regenerator: true,
+                },
+              ],
+            ],
           },
         },
       },
