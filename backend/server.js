@@ -4,7 +4,7 @@ const express = require("express")
 const session = require("express-session")
 const morgan = require("morgan")
 
-const routes = require("./routes")
+// const routes = require("./routes")
 
 const port = process.env.PORT || 4000
 const app = express()
@@ -24,6 +24,6 @@ app.use(
   })
 )
 
-app.get("/hello", (req, res) => res.send("Hello"))
+app.get("/hello", (req, res) => res.json({ hello: "hello" }))
 
 app.listen(port, () => console.log(`Server Running on Port: ${port}`))
