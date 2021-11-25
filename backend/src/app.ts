@@ -13,3 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get("/", (req: any, res: any) => res.send("Hello World"))
+
+app.listen(PORT, () => {
+  console.log(`Listening to the smooth sounds of server on PORT: ${PORT}`)
+})
