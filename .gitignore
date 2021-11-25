@@ -1,2 +1,45 @@
 **/node_modules
 **/.env
+**/package-lock.json
+
+notes.txt
+
+# Backend
+# OS X
+backend/.DS_Store*
+backend/Icon?
+backend/._*
+
+# Windows
+backend/Thumbs.db
+backend/ehthumbs.db
+backend/Desktop.ini
+
+# Linux
+backend/.directory
+backend/*~
+
+
+# npm
+backend/*.log
+backend/*.gz
+
+
+# Coveralls
+backend/coverage
+
+# Benchmarking
+backend/benchmarks/graphs
+
+# Frontend
+
+# testing
+frontend//coverage
+frontend/
+# production
+frontend//build
+frontend/
+# misc
+frontend/.DS_Store
+frontend/.env
+frontend/npm-debug.log
