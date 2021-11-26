@@ -28,13 +28,6 @@ app.use(express.json())
  *  ROUTING
  */
 
-// app.get("/", (req: Request, res: Response) =>
-//   res.json({
-//     success: true,
-//     name: "Test",
-//   })
-// )
-
 app
   .route("/")
   .get((req: Request, res: Response) => {
