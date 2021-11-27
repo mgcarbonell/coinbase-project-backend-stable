@@ -6,11 +6,15 @@ notes.txt
 ts-express-notes.txt
 ts-react-notes.txt
 
-# Backend
+# BACKEND
+
+backend/package-lock.json
+
 # OS X
 backend/.DS_Store*
 backend/Icon?
 backend/._*
+
 
 # Windows
 backend/Thumbs.db
@@ -33,7 +37,8 @@ backend/coverage
 # Benchmarking
 backend/benchmarks/graphs
 
-# Frontend
+
+# FRONTEND
 
 # testing
 frontend//coverage

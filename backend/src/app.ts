@@ -5,10 +5,11 @@ import * as dotenv from "dotenv"
 import express, { application, Request, Response } from "express"
 import cors from "cors"
 import helmet from "helmet"
-import { request } from "http"
+import morgan from "morgan"
+// import config from "config"
 
 /**
- * CONFIGS & VAR DECLERATIONS
+ * CONFIGS & VARS
  */
 dotenv.config()
 
@@ -21,6 +22,7 @@ const app = express()
 app.use(helmet())
 app.use(cors())
 app.use(express.json())
+app.use(morgan("dev"))
 // uncomment line below to accept URL encoded
 // app.use(express.urlencoded({ extended: true }))
 
