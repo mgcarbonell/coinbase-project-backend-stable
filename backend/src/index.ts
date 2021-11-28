@@ -6,7 +6,7 @@ import express, { application, Request, Response } from "express"
 import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
-// import config from "config"
+import { createConnection } from "typeorm"
 
 /**
  * CONFIGS & VARS
@@ -24,7 +24,17 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan("dev"))
 // uncomment line below to accept URL encoded
-// app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
+
+const main = async () => {
+  const connection = await createConnection({
+    type: "postgres",
+    host: process.env.DB_HOST,
+    port: 5432,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+  })
+}
 
 /**
  *  ROUTING
