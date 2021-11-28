@@ -1,0 +1,3 @@
+// all currencies
+
+// individual currency

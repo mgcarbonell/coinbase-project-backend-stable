@@ -1,7 +1,7 @@
 import {
   Entity,
   BaseEntity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
@@ -9,7 +9,7 @@ import {
 
 @Entity({ name: "favorite" })
 export class Favorite extends BaseEntity {
-  @PrimaryColumn("int", { name: "id", unique: true })
+  @PrimaryGeneratedColumn()
   id!: number
 
   @Column("varchar", { name: "cryptoName", unique: true, length: 20 })

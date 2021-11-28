@@ -11,6 +11,7 @@ import { handle, middlewareError, middlewareNotFound } from "./util/error"
 import { logger } from "./util/logger"
 import { createHttpTerminator } from "http-terminator"
 import "express-async-errors"
+import { createFavoriteRouter } from "./routes/favorite.post"
 
 dotenv.config()
 
@@ -23,7 +24,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(pinoHttp({ logger }))
 app.use(helmet())
 app.use(cors())
+app.use(createFavoriteRouter)
 app.use([middlewareNotFound, middlewareError])
+
+// server routing middleware
 
 // create server
 //
@@ -57,8 +61,8 @@ const connectToORM = async () => {
     let connection: Connection
     connection = await createConnection(ORMconfig)
     logger.info("Connected to Postgres")
-    // await connection.synchronize()
-    // await connection.runMigrations()
+    await connection.synchronize()
+    await connection.runMigrations()
   } catch (error) {
     handle(error)
   }
@@ -67,4 +71,6 @@ const connectToORM = async () => {
 connectToORM()
 
 // Sanity check
-app.get("/api/v1/health", (req, res) => res.send({ "sanity check": "sane" }))
+app.get("/api/v1/health", (req, res) =>
+  res.send({ "sanity check": "sane" }).status(200)
+)
