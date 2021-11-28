@@ -22,7 +22,11 @@
       "http-terminator": "^3.0.3",
       "morgan": "^1.10.0",
       "pg": "^8.7.1",
+<<<<<<< HEAD
       "pino-http": "^6.3.1",
+=======
+      "reflect-metadata": "^0.1.10",
+>>>>>>> 3789391131eb4c759a2aba4bee81618c513ef03f
       "ts-node-dev": "^1.1.8",
       "tslib": "^2.3.1",
       "typeorm": "0.2.41"
