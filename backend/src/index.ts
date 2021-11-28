@@ -2,16 +2,17 @@
  * IMPORTS
  */
 import * as dotenv from "dotenv"
-import express, { application, Request, Response } from "express"
+import express, { Request, Response } from "express"
 import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
 import { createConnection } from "typeorm"
+import ORMconfig from "./ormconfig"
 
 /**
  * CONFIGS & VARS
  */
-dotenv.config()
+dotenv.config({ path: __dirname + "/.env" })
 
 const PORT: number = parseInt(process.env.PORT as string, 10) || 4000
 const app = express()
@@ -27,15 +28,15 @@ app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: false }))
 
 const main = async () => {
-  const connection = await createConnection({
-    type: "postgres",
-    host: process.env.DB_HOST,
-    port: 5432,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-  })
+  try {
+    await createConnection(ORMconfig)
+    console.log("Connected to Postgres")
+  } catch (error) {
+    console.log(error)
+  }
 }
 
+main()
 /**
  *  ROUTING
  */
