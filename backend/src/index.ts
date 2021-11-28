@@ -27,7 +27,7 @@ app.use([middlewareNotFound, middlewareError])
 
 // create server
 //
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`You are listening to the sweet sounds of port: ${PORT}`)
 })
 
