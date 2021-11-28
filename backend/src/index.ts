@@ -5,8 +5,8 @@ import express from "express"
 import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
-import { createConnection } from "typeorm"
-import ORMconfig from "./ormconfig"
+import { Connection, createConnection } from "typeorm"
+import ORMconfig from "../ormconfig"
 import { handle, middlewareError, middlewareNotFound } from "./util/error"
 import { logger } from "./util/logger"
 import { createHttpTerminator } from "http-terminator"
@@ -25,10 +25,13 @@ app.use(helmet())
 app.use(cors())
 app.use([middlewareNotFound, middlewareError])
 
+// create server
+//
 const server = app.listen(PORT, () => {
   logger.info(`You are listening to the sweet sounds of port: ${PORT}`)
 })
 
+// error handling
 process.on("unhandledRejection", (err) => {
   throw err
 })
@@ -36,6 +39,8 @@ process.on("unhandledRejection", (err) => {
 process.on("uncaughtException", (err) => {
   handle(err)
 })
+
+// error termination
 const httpTerminator = createHttpTerminator({ server })
 const shutdownSigs = ["SIGTERM", "SIGINT"]
 
@@ -46,17 +51,20 @@ shutdownSigs.forEach((signal) =>
   })
 )
 
-// TypeORM
-const main = async () => {
+// TypeORM DB connection
+const connectToORM = async () => {
   try {
-    await createConnection(ORMconfig)
+    let connection: Connection
+    connection = await createConnection(ORMconfig)
     logger.info("Connected to Postgres")
+    // await connection.synchronize()
+    // await connection.runMigrations()
   } catch (error) {
     handle(error)
   }
 }
 
-main()
+connectToORM()
 
 // Sanity check
 app.get("/api/v1/health", (req, res) => res.send({ "sanity check": "sane" }))

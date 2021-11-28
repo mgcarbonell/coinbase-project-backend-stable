@@ -1,5 +1,4 @@
 import pino from "pino"
-import dayjs from "dayjs"
 
 export const logger = pino({
   level: "info",
@@ -9,5 +8,4 @@ export const logger = pino({
   base: {
     pid: false,
   },
-  timestamp: () => `,"time":"${dayjs().format()}`,
 })
