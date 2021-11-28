@@ -7,9 +7,10 @@ import helmet from "helmet"
 import pinoHttp from "pino-http"
 import { createConnection } from "typeorm"
 import ORMconfig from "./ormconfig"
-import { handle } from "./util/error"
+import { handle, middlewareError, middlewareNotFound } from "./util/error"
 import { logger } from "./util/logger"
 import { createHttpTerminator } from "http-terminator"
+import "express-async-errors"
 
 dotenv.config()
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(pinoHttp({ logger }))
 app.use(helmet())
 app.use(cors())
+app.use([middlewareNotFound, middlewareError])
 
 const server = app.listen(PORT, () => {
   logger.info(`You are listening to the sweet sounds of port: ${PORT}`)
