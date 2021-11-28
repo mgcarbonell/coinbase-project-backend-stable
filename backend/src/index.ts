@@ -1,23 +1,32 @@
 // imports
 import dotenv from "dotenv"
 import "reflect-metadata"
+import express from "express"
+import cors from "cors"
+import helmet from "helmet"
+import pinoHttp from "pino-http"
 import { createConnection } from "typeorm"
 import ORMconfig from "./ormconfig"
 import { handle } from "./util/error"
 import { logger } from "./util/logger"
 import { createHttpTerminator } from "http-terminator"
-import { app } from "./app"
 
-// configs & variables
-dotenv.config({ path: __dirname + "/.env" })
+dotenv.config()
 
+const app = express()
 const PORT: number = parseInt(process.env.PORT as string, 10) || 4000
+
+//middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(pinoHttp({ logger }))
+app.use(helmet())
+app.use(cors())
 
 const server = app.listen(PORT, () => {
   logger.info(`You are listening to the sweet sounds of port: ${PORT}`)
 })
 
-// httpTerminator
 process.on("unhandledRejection", (err) => {
   throw err
 })
@@ -47,6 +56,5 @@ const main = async () => {
 
 main()
 
-// htppTerminator configuration
-
-// port listen
+// Sanity check
+app.get("/api/v1/health", (req, res) => res.send({ "sanity check": "sane" }))
