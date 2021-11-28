@@ -1,10 +1,11 @@
 **/node_modules
 **/.env
 **/package-lock.json
+**/dist
 
-notes.txt
-ts-express-notes.txt
-ts-react-notes.txt
+*.txt
+
+sampleAPIResponseAllCurrencies.json
 
 # BACKEND
 
@@ -30,6 +31,14 @@ backend/*~
 backend/*.log
 backend/*.gz
 
+# yarn
+backend/.yarn/*
+backend/!.yarn/cache
+backend/!.yarn/patches
+backend/!.yarn/plugins
+backend/!.yarn/releases
+backend/!.yarn/sdks
+backend/!.yarn/versions
 
 # Coveralls
 backend/coverage
