@@ -5,7 +5,7 @@ import express from "express"
 import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
-import { createConnection } from "typeorm"
+import { Connection, createConnection } from "typeorm"
 import ORMconfig from "../ormconfig"
 import { handle, middlewareError, middlewareNotFound } from "./util/error"
 import { logger } from "./util/logger"
@@ -52,16 +52,19 @@ shutdownSigs.forEach((signal) =>
 )
 
 // TypeORM DB connection
-const main = async () => {
+const connectToORM = async () => {
   try {
-    await createConnection(ORMconfig)
+    let connection: Connection
+    connection = await createConnection(ORMconfig)
     logger.info("Connected to Postgres")
+    // await connection.synchronize()
+    // await connection.runMigrations()
   } catch (error) {
     handle(error)
   }
 }
 
-main()
+connectToORM()
 
 // Sanity check
 app.get("/api/v1/health", (req, res) => res.send({ "sanity check": "sane" }))
