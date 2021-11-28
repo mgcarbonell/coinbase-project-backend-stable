@@ -1,7 +1,4 @@
 import { ConnectionOptions } from "typeorm"
-import path from "path"
-
-const isCompiled = path.extname(__filename).includes("js")
 
 export default {
   type: "postgres",
@@ -15,8 +12,8 @@ export default {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
-  // entities: [`src/entity/**/*.${isCompiled ? "js" : "ts"}`],
-  // migrations: [`src/entity/**/*.${isCompiled ? "js" : "ts"}`],
+  entities: [`src/entity/**/*.ts`],
+  migrations: [`src/entity/**/*.ts`],
   cli: {
     entitiesDir: "src/entity",
     migrationsDir: "src/migration",
