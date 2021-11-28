@@ -6,7 +6,7 @@ import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
 import { createConnection } from "typeorm"
-import ORMconfig from "./ormconfig"
+import ORMconfig from "../ormconfig"
 import { handle, middlewareError, middlewareNotFound } from "./util/error"
 import { logger } from "./util/logger"
 import { createHttpTerminator } from "http-terminator"
@@ -25,10 +25,13 @@ app.use(helmet())
 app.use(cors())
 app.use([middlewareNotFound, middlewareError])
 
-const server = app.listen(PORT, () => {
+// create server
+//
+app.listen(PORT, () => {
   logger.info(`You are listening to the sweet sounds of port: ${PORT}`)
 })
 
+// error handling
 process.on("unhandledRejection", (err) => {
   throw err
 })
@@ -36,6 +39,8 @@ process.on("unhandledRejection", (err) => {
 process.on("uncaughtException", (err) => {
   handle(err)
 })
+
+// error termination
 const httpTerminator = createHttpTerminator({ server })
 const shutdownSigs = ["SIGTERM", "SIGINT"]
 
@@ -46,7 +51,7 @@ shutdownSigs.forEach((signal) =>
   })
 )
 
-// TypeORM
+// TypeORM DB connection
 const main = async () => {
   try {
     await createConnection(ORMconfig)
