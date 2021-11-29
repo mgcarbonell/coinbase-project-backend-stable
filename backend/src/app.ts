@@ -3,12 +3,13 @@ import express from "express"
 import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
-import { createFavoriteRouter } from "./routes/favorite.post"
-import { deleteFavoriteRouter } from "./routes/favorite.delete"
-import { fetchFavoriteRouter } from "./routes/favorite.get"
+// import { createFavoriteRouter } from "./routes/favorite.post"
+// import { deleteFavoriteRouter } from "./routes/favorite.delete"
+// import { fetchFavoriteRouter } from "./routes/favorite.get"
 import { handle } from "./util/error"
 import { logger } from "./util/logger"
-import { updateFavorite } from "./routes/favorite.update"
+// import { updateFavorite } from "./routes/favorite.update"
+import favoriteRoutes from "./routes/favorite.route"
 
 dotenv.config()
 
@@ -31,9 +32,10 @@ app.get("/api/v1/health", (req, res) => {
 })
 
 // server routing middleware
-app.use(createFavoriteRouter)
-app.use(deleteFavoriteRouter)
-app.use(fetchFavoriteRouter)
-app.use(updateFavorite)
+// app.use(createFavoriteRouter)
+// app.use(deleteFavoriteRouter)
+// app.use(fetchFavoriteRouter)
+// app.use(updateFavorite)
+favoriteRoutes(app)
 
 export { app }
