@@ -3,12 +3,8 @@ import express from "express"
 import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
-// import { createFavoriteRouter } from "./routes/favorite.post"
-// import { deleteFavoriteRouter } from "./routes/favorite.delete"
-// import { fetchFavoriteRouter } from "./routes/favorite.get"
 import { handle } from "./util/error"
 import { logger } from "./util/logger"
-// import { updateFavorite } from "./routes/favorite.update"
 import favoriteRoutes from "./routes/favorite.route"
 
 dotenv.config()
