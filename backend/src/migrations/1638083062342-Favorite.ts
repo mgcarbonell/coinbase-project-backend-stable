@@ -9,6 +9,7 @@ export class Favorite1638083062342 implements MigrationInterface {
         type: "integer",
         isPrimary: true,
         isGenerated: true,
+        isNullable: false,
         generationStrategy: "increment",
       },
       {
