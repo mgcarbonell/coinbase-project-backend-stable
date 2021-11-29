@@ -8,6 +8,7 @@ import { deleteFavoriteRouter } from "./routes/favorite.delete"
 import { fetchFavoriteRouter } from "./routes/favorite.get"
 import { handle } from "./util/error"
 import { logger } from "./util/logger"
+import { updateFavorite } from "./routes/favorite.update"
 
 dotenv.config()
 
@@ -33,5 +34,6 @@ app.get("/api/v1/health", (req, res) => {
 app.use(createFavoriteRouter)
 app.use(deleteFavoriteRouter)
 app.use(fetchFavoriteRouter)
+app.use(updateFavorite)
 
 export { app }
