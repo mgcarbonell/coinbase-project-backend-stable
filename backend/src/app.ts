@@ -1,5 +1,5 @@
 import dotenv from "dotenv"
-import express from "express"
+import express, { Request, Response } from "express"
 import cors from "cors"
 import helmet from "helmet"
 import pinoHttp from "pino-http"
@@ -18,7 +18,7 @@ app.use(helmet())
 app.use(cors())
 
 // sanity check
-app.get("/api/v1/health", (req, res) => {
+app.get("/api/v1/health", (req: Request, res: Response) => {
   try {
     res.send({ "sanity check": "sane" }).status(200)
   } catch (error) {
@@ -28,10 +28,6 @@ app.get("/api/v1/health", (req, res) => {
 })
 
 // server routing middleware
-// app.use(createFavoriteRouter)
-// app.use(deleteFavoriteRouter)
-// app.use(fetchFavoriteRouter)
-// app.use(updateFavorite)
 favoriteRoutes(app)
 
 export { app }
