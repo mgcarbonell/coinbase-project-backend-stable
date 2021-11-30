@@ -6,6 +6,7 @@ import pinoHttp from "pino-http"
 import { handle } from "./util/error"
 import { logger } from "./util/logger"
 import favoriteRoutes from "./routes/favorite.route"
+import { currencyRoutes } from "./routes/currency.route"
 
 dotenv.config()
 
@@ -29,5 +30,6 @@ app.get("/api/v1/health", (req: Request, res: Response) => {
 
 // server routing middleware
 favoriteRoutes(app)
+currencyRoutes(app)
 
 export { app }
