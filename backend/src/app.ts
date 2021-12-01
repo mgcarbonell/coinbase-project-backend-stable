@@ -11,12 +11,17 @@ import { currencyRoutes } from "./routes/currency.route"
 dotenv.config()
 
 const app = express()
-
+// abstract out vvvvvvvv
+const accessList = [process.env.CLIENT_URL]
+const options: cors.CorsOptions = {
+  origin: accessList,
+}
+// abstract out ^^^^^^^^
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(pinoHttp({ logger }))
 app.use(helmet())
-app.use(cors())
+app.use(cors(options))
 
 // sanity check
 app.get("/api/v1/health", (req: Request, res: Response) => {
