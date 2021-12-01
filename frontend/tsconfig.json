@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
     "outDir": "./dist/",
+    "lib": ["dom", "esnext"],
+    "strict": true,
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "ES6",
-    "target": "ES5",
-    "jsx": "react",
     "allowJs": true,
-    "moduleResolution": "node"
-  }
+    "target": "esnext"
+  },
+  "exclude": "node_modules"
 }
