@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 function App() {
   useEffect(() => {
-    fetch("/hello")
+    fetch("http://localhost:4000/api/v1/health")
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err))
