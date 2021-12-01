@@ -1,4 +1,4 @@
-import { Express, Request, Response, NextFunction } from "express"
+import { Express } from "express"
 import {
   getFavorite,
   getSingleFavorite,
