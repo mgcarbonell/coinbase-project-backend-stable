@@ -25,7 +25,7 @@ module.exports = {
     },
   },
   entry: {
-    bundle: "./src/index.js",
+    bundle: "./src/index.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
