@@ -7,6 +7,7 @@ import { handle } from "./util/error"
 import { logger } from "./util/logger"
 import favoriteRoutes from "./routes/favorite.route"
 import { currencyRoutes } from "./routes/currency.route"
+import { corsConfig } from "./util/corsConfig.util"
 
 dotenv.config()
 
@@ -16,7 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(pinoHttp({ logger }))
 app.use(helmet())
-app.use(cors())
+app.use(cors(corsConfig))
 
 // sanity check
 app.get("/api/v1/health", (req: Request, res: Response) => {
