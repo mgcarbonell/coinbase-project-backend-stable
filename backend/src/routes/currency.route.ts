@@ -5,7 +5,7 @@ import { getCurrencyData } from "../controllers/currency.controller"
 // We are not accessing wallets
 // K.I.S.S.
 const currencyRoutes = (app: Express) => {
-  app.get("/api/v1/currencies", getCurrencyData)
+  app.get("/api/v1/currency", getCurrencyData)
 }
 
 export { currencyRoutes }
