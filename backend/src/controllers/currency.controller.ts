@@ -1,11 +1,5 @@
-// import services
-// import { currencyService } from "../services/currency.services"
 import axios, { AxiosResponse } from "axios"
 import { Request, Response, NextFunction } from "express"
-
-// export const getCurrencyData = currencyService
-
-class Currency {}
 
 const getCurrencyData = async (req: Request, res: Response) => {
   try {
