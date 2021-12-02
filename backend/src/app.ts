@@ -22,10 +22,10 @@ app.use(cors(corsConfig))
 // sanity check
 app.get("/api/v1/health", (req: Request, res: Response) => {
   try {
-    res.send({ "sanity check": "sane" }).status(200)
+    res.send({ "sanity-check": "sane" }).status(200)
   } catch (error) {
     handle(error)
-    res.send({ "sanity check": "insane" }).status(500)
+    res.send({ "sanity-check": "insane" }).status(500)
   }
 })
 
