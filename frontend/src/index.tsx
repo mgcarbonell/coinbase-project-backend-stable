@@ -1,13 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
-import { QueryClientProvider } from "react-query"
-import { queryConfig } from "./util/queryConfig"
+import { QueryClient, QueryClientProvider } from "react-query"
+
+const queryClient = new QueryClient()
 
 ReactDOM.render(
-  <QueryClientProvider client={queryConfig}>
-    <App />
-  </QueryClientProvider>,
-
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+    ,
+  </React.StrictMode>,
   document.getElementById("root")
 )
