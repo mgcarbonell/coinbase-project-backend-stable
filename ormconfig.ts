@@ -1,6 +1,6 @@
 import * as path from "path"
 import { ConnectionOptions } from "typeorm"
-import dotenv from "dotenv"
+import * as dotenv from "dotenv"
 import { Favorite } from "./src/entities/favorite.entity"
 dotenv.config()
 
