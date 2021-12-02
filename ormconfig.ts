@@ -1,7 +1,7 @@
 import * as path from "path"
 import { ConnectionOptions } from "typeorm"
 import dotenv from "dotenv"
-
+import { Favorite } from "./src//entity/favorite.entity"
 dotenv.config()
 
 export = {
@@ -16,7 +16,7 @@ export = {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
-  entities: [path.resolve(__dirname, "**/*.entity{.ts,.js}")],
+  entities: ["src/entity/*{.ts,.js}"],
   migrations: [path.resolve(__dirname, "**/*{.ts,.js}")],
   cli: {
     entitiesDir: "src/entity",
