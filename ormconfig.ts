@@ -17,7 +17,7 @@ export = {
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
   entities: [Favorite],
-  migrations: [`src/migrations/*.ts`],
+  migrations: ["src/migrations/*.ts"],
   cli: {
     entitiesDir: "src/entity",
     migrationsDir: "src/migrations",
