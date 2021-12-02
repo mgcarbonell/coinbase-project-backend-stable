@@ -50,11 +50,9 @@ backend/benchmarks/graphs
 # FRONTEND
 
 # testing
-frontend//coverage
-frontend/
+frontend/coverage
 # production
-frontend//build
-frontend/
+frontend/build
 # misc
 frontend/.DS_Store
 frontend/.env
