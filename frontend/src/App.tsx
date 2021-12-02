@@ -1,28 +1,21 @@
-import { FC } from "react"
-import { useQuery } from "react-query"
+import React, { FC, useState, useEffect } from "react"
 import Grid from "@mui/material/Grid"
-import { Type } from "typescript"
-import { Wrapper } from "./App.styles"
+import { IServer } from "./lib/interfaces/IServer"
+import axios, { AxiosResponse } from "axios"
 
-type serverHealthType = {
-  health: string
-}
-
-const getServerHealth = async () => {
-  try {
-    return await (await fetch(process.env.REACT_APP_SERVER_CHECK)).json()
-  } catch (err) {
-    throw new Error(err)
-  }
-}
+const url: any = process.env.REACT_APP_SERVER_HEALTH
+console.log(url)
 
 const App: FC = () => {
-  const { data } = useQuery<serverHealthType, Error>("sanity-check")
-  console.log(data)
+  useEffect(() => {
+    axios.get<IServer>(url).then((response: AxiosResponse) => {
+      console.log("Response", response.data)
+    })
+  }, [])
   return (
-    <Grid>
-      <div className="App"> Hello!</div>
-    </Grid>
+    <div>
+      <Grid></Grid>
+    </div>
   )
 }
 
