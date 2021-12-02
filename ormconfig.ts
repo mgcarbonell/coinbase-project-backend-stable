@@ -16,9 +16,7 @@ export = {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
-  entities: [
-    process.env.NODE_ENV === "test" ? "./src/entities/*.ts" : "entities/*.js",
-  ],
+  entities: [path.resolve(__dirname, "**/*.entity{.ts,.js}")],
   migrations: [path.resolve(__dirname, "**/*{.ts,.js}")],
   cli: {
     entitiesDir: "src/entity",
