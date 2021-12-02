@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express"
-import { Favorite } from "../entity/favorite.entity"
+import { Favorite } from "../entities/favorite.entity"
 import { getManager } from "typeorm"
 
 const getFavorite = async (req: Request, res: Response, next: NextFunction) => {
