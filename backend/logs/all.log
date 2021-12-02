@@ -1,3 +1,19 @@
 [2021-12-01 20:13:06:136] [32minfo[39m: [32mConnected to Postgres[39m
 [2021-12-01 20:14:49:1449] [32minfo[39m: [32mYou are now listening to the smooth sounds of port: 4000[39m
 [2021-12-01 20:14:49:1449] [32minfo[39m: [32mConnected to Postgres[39m
+[2021-12-01 20:51:14:5114] [32minfo[39m: [32mYou are now listening to the smooth sounds of port: 4000[39m
+[2021-12-01 20:51:14:5114] [32minfo[39m: [32mConnected to Postgres[39m
+[2021-12-01 21:05:30:530] [34mhttp[39m: [34mGET /api/v1/health 200 22 - 4.935 ms[39m
+[34m[39m
+[2021-12-01 21:06:11:611] [34mhttp[39m: [34mGET /api/v1/health 200 22 - 0.445 ms[39m
+[34m[39m
+[2021-12-01 21:09:31:931] [34mhttp[39m: [34mGET /api/v1/health 200 22 - 0.411 ms[39m
+[34m[39m
+[2021-12-01 21:11:34:1134] [32minfo[39m: [32mYou are now listening to the smooth sounds of port: 4000[39m
+[2021-12-01 21:11:34:1134] [32minfo[39m: [32mConnected to Postgres[39m
+[2021-12-01 21:11:40:1140] [34mhttp[39m: [34mGET /api/v1/health 200 22 - 2.781 ms[39m
+[34m[39m
+[2021-12-01 21:12:57:1257] [32minfo[39m: [32mYou are now listening to the smooth sounds of port: 4000[39m
+[2021-12-01 21:12:57:1257] [32minfo[39m: [32mConnected to Postgres[39m
+[2021-12-01 21:13:01:131] [34mhttp[39m: [34mGET /api/v1/health 200 22 - 3.652 ms[39m
+[34m[39m

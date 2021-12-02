@@ -4,7 +4,7 @@ import { app } from "./app"
 import "reflect-metadata"
 import { Connection, createConnection } from "typeorm"
 import ORMconfig from "../ormconfig"
-import Logger from "./util/logger"
+import Logger from "./util/logger.util"
 import "express-async-errors"
 
 dotenv.config()
