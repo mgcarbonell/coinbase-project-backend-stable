@@ -4,7 +4,7 @@ import { Favorite } from "./src/entity/favorite.entity"
 
 dotenv.config()
 
-export = {
+export default {
   type: "postgres",
   host: process.env.TYPEORM_HOST,
   port: parseInt(process.env.TYPEORM_PORT, 10),
