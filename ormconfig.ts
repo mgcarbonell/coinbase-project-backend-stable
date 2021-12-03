@@ -4,7 +4,7 @@ import * as dotenv from "dotenv"
 import { Favorite } from "./src/entities/favorite.entity"
 dotenv.config()
 
-export = {
+const ConnectionOptions = {
   type: "postgres",
   host: process.env.TYPEORM_HOST,
   port: parseInt(process.env.TYPEORM_PORT, 10) || 5432,
@@ -23,6 +23,8 @@ export = {
     migrationsDir: "src/migrations",
   },
   extra: { ssl: true },
-} as ConnectionOptions
+}
+
+export default ConnectionOptions
 
 // courtesy of Tigran in Tech
