@@ -16,7 +16,7 @@ export default {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
-  entities: [Favorite],
+  entities: [Favorite || __dirname + "/**/*.entity.js"],
   migrations: [`src/migrations/*.ts`],
   cli: {
     entitiesDir: "src/entity",
