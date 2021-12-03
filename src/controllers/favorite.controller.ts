@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from "express"
 import { Favorite } from "../entities/favorite.entity"
-import { getManager } from "typeorm"
+import { getManager, getRepository } from "typeorm"
+
+const favoriteRepository = getRepository(Favorite)
 
 const getFavorite = async (req: Request, res: Response, next: NextFunction) => {
-  const favorite = await Favorite.find()
+  const favorite = await favoriteRepository.find()
   if (!favorite) {
     return res.send({ message: "No favorites found" })
   } else {
@@ -17,8 +19,7 @@ const getSingleFavorite = async (
   next: NextFunction
 ) => {
   const { id } = req.params
-
-  const favorite = await Favorite.findOne(parseInt(id, 10))
+  const favorite = await favoriteRepository.findOne(parseInt(id, 10))
 
   if (!favorite) {
     return res.json({
@@ -36,8 +37,7 @@ const createFavorite = async (
 ) => {
   // post a new favorite
   const { cryptoName, note } = req.body
-
-  const favorite = Favorite.create({
+  const favorite = favoriteRepository.create({
     cryptoName: cryptoName,
     note: note,
   })
@@ -53,8 +53,7 @@ const deleteFavorite = async (
   next: NextFunction
 ) => {
   const { id } = req.params
-
-  const response = await Favorite.delete(parseInt(id, 10))
+  const response = await favoriteRepository.delete(parseInt(id, 10))
 
   return res.json(response)
 }
@@ -67,9 +66,9 @@ const updateFavorite = async (
   const { id } = req.params
   const { cryptoName, note } = req.body
   const entityManager = getManager()
-  const favorite = await Favorite.findOne(parseInt(id, 10))
+  const favorite = await favoriteRepository.findOne(parseInt(id, 10))
   favorite.note = note
-  await entityManager.save(favorite)
+  await entityManager.save(favoriteRepository)
 
   if (!favorite) {
     return res.json({
