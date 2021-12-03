@@ -1,7 +1,7 @@
 import * as path from "path"
 import { ConnectionOptions } from "typeorm"
 import dotenv from "dotenv"
-import { Favorite } from "./src/entities/favorite.entity"
+// import { Favorite } from "./src/entities/favorite.entity"
 dotenv.config()
 
 export const config: ConnectionOptions = {
@@ -23,4 +23,3 @@ export const config: ConnectionOptions = {
 }
 
 module.exports = config
-// courtesy of Tigran in Tech
