@@ -16,7 +16,7 @@ export = {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
-  entities: [__dirname + "/dist/src/entity/*.js"],
+  entities: [__dirname + "/dist/src/entity/**/*.js"],
   migrations: ["src/migrations/*.ts"],
   cli: {
     entitiesDir: "src/entity",
