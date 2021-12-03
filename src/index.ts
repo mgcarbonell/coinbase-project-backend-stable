@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import { app } from "./app"
 import "reflect-metadata"
 import { Connection, createConnection } from "typeorm"
-import ORMconfig from "../ormconfig"
+import { config } from "../ormconfig"
 import Logger from "./util/logger.util"
 import "express-async-errors"
 
@@ -18,7 +18,7 @@ const server = app.listen(PORT, () => {
 const connectToORM = async () => {
   try {
     let connection: Connection
-    connection = await createConnection(ORMconfig)
+    connection = await createConnection(config)
     Logger.info("Connected to Postgres")
     await connection.synchronize()
     await connection.runMigrations()
