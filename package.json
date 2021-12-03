@@ -34,7 +34,7 @@
     "pg": "^8.7.1",
     "pino-http": "^6.3.1",
     "responselike": "^2.0.0",
-    "ts-node-dev": "^1.1.8",
+    "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
     "typeorm": "^0.2.41",
     "uninstall": "^0.0.0",
@@ -47,7 +47,7 @@
     "@types/node": "^16.11.11",
     "nodemon": "^2.0.15",
     "reflect-metadata": "^0.1.13",
-    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.2"
   },
   "packageManager": "yarn@3.1.1",
