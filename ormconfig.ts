@@ -7,7 +7,7 @@ dotenv.config()
 export = {
   type: "postgres",
   host: process.env.TYPEORM_HOST,
-  port: parseInt(process.env.TYPEORM_PORT, 10),
+  port: 5432,
   username: process.env.TYPEORM_USERNAME || "postgres",
   password: process.env.TYPEORM_PASSWORD || "postgres",
   database: process.env.TYPEORM_DATABASE,
