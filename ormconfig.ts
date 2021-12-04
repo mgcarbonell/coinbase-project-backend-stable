@@ -13,7 +13,7 @@ export default {
   database: process.env.TYPEORM_DATABASE,
   synchornize: true,
   logging: true,
-  entities: [__dirname + "/**/*.entity{.ts,.js}"],
+  entities: [Favorite],
   migrations: [`src/migrations/*.ts`],
   cli: {
     entitiesDir: "src/entity",

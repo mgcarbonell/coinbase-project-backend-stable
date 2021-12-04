@@ -21,9 +21,7 @@ const getSingleFavorite = async (
   const favorite = await Favorite.findOne(parseInt(id, 10))
 
   if (!favorite) {
-    return res.json({
-      message: "No favorite found.",
-    })
+    return false
   }
 
   return res.json(favorite)
@@ -35,16 +33,24 @@ const createFavorite = async (
   next: NextFunction
 ) => {
   // post a new favorite
+
   const { cryptoName, note } = req.body
 
-  const favorite = Favorite.create({
-    cryptoName: cryptoName,
-    note: note,
-  })
+  const duplicate = await Favorite.findOne({ where: { cryptoName } })
+  if (!duplicate) {
+    const favorite = Favorite.create({
+      cryptoName: cryptoName,
+      note: note,
+    })
 
-  await favorite.save()
+    await favorite.save()
 
-  return res.json(favorite)
+    return res.json(favorite)
+  } else {
+    return res.json({
+      message: "This crypto already exists in your favorites",
+    })
+  }
 }
 
 const deleteFavorite = async (
