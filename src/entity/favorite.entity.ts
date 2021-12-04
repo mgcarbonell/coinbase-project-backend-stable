@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
 } from "typeorm"
 
-Entity({ name: "favorite" })
+@Entity({ name: "favorite" })
 export class Favorite extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number

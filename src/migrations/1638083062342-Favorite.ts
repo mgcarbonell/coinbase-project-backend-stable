@@ -42,9 +42,11 @@ export class Favorite1638083062342 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     // write SQL queries to ALTER table in RAW SQL here
+    await queryRunner.createTable(this.table)
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     // reverts what was down in "up" method
+    await queryRunner.dropTable(this.table)
   }
 }
