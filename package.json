@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "enginers": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
@@ -32,6 +35,7 @@
     "node-fetch": "2",
     "pg": "^8.7.1",
     "pino-http": "^6.3.1",
+    "reflect-metadata": "^0.1.13",
     "responselike": "^2.0.0",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
