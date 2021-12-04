@@ -13,10 +13,7 @@ export default {
   database: process.env.TYPEORM_DATABASE,
   synchornize: true,
   logging: true,
-  autoReconnect: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 2000,
-  entities: [__dirname + "/**/*.entity.js"],
+  entities: [Favorite],
   migrations: [`src/migrations/*.ts`],
   cli: {
     entitiesDir: "src/entity",
