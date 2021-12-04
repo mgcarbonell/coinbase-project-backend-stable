@@ -4,7 +4,7 @@ import { Favorite } from "./src/entity/favorite.entity"
 
 dotenv.config()
 
-export = {
+export default {
   type: "postgres",
   host: process.env.TYPEORM_HOST,
   port: parseInt(process.env.TYPEORM_PORT, 10),
@@ -13,10 +13,7 @@ export = {
   database: process.env.TYPEORM_DATABASE,
   synchornize: true,
   logging: true,
-  autoReconnect: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 2000,
-  entities: [Favorite],
+  entities: [__dirname + "/**/*.entity{.ts,.js}"],
   migrations: [`src/migrations/*.ts`],
   cli: {
     entitiesDir: "src/entity",

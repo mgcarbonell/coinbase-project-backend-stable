@@ -20,7 +20,7 @@ const connectToORM = async () => {
     let connection: Connection
     connection = await createConnection(ORMconfig)
     Logger.info("Connected to Postgres")
-    await connection.synchronize()
+    // await connection.synchronize()
     await connection.runMigrations()
   } catch (error) {
     Logger.error(error)
