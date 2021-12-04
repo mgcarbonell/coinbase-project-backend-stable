@@ -21,7 +21,7 @@ export class Favorite1638083062342 implements MigrationInterface {
       },
       {
         name: "note",
-        type: "string",
+        type: "varchar",
         length: "1000",
         isNullable: true,
       },
