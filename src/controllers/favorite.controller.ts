@@ -24,7 +24,7 @@ const getSingleFavorite = async (
     return false
   }
 
-  return res.json(favorite)
+  return res.json(favorite).status(200)
 }
 
 const createFavorite = async (
@@ -45,7 +45,7 @@ const createFavorite = async (
 
     await favorite.save()
 
-    return res.json(favorite)
+    return res.json(favorite).status(201)
   } else {
     return res.json({
       message: "This crypto already exists in your favorites",
